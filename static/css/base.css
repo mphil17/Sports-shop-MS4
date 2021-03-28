@@ -3,3 +3,23 @@ body {
     background: url('/media/main-cricket.jpg');
     background-size: cover;
 }
+
+.custom-heading {
+    font-family: 'Kiwi Maru', serif;
+    color: rgb(235, 235, 235);
+}
+
+.custom-jt {
+    background-color: rgba(235, 235, 235, 0.6)!important; 
+    height: 75vh;
+}
+
+.custom-btn {
+    height: 200px;
+    width: 300px;
+}
+
+.img-resize {
+    height: 100px;
+    width: 100px;
+}
