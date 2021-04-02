@@ -23,3 +23,13 @@ body {
     height: 100px;
     width: 100px;
 }
+
+.custom-card {
+    font-family: 'Kiwi Maru', serif;
+    height: 100%;
+    transition: all .2s ease-in-out; 
+}
+
+.custom-card:hover {
+    transform: scale(1.2);
+}
