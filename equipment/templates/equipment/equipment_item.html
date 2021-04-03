@@ -7,9 +7,9 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
-{% for item in equipment %} 
+
         <div class="col-lg-3 col-md-6 mb-5">
-            <a href="{% url 'equipment_item' item.id %}">
+            
             <div class="card text-white bg-primary mb-3 custom-card" style="max-width: 20rem;">
                 <div class="card-header text-capitalize">{{ item.category }}</div>
                     <div class="card-body">
@@ -17,9 +17,8 @@
                         <p class="card-text">{{ item.description }}</p></div><br>
                         <p class="card-text pl-2">Condition: {{ item.condition }}</p>
             </div>
-             </a>
+           
         </div>
-{% endfor %}
         </div>
 </div>
 
