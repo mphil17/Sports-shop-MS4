@@ -3,7 +3,29 @@
 
 {% block content %}
 
+{% for cat in current_categories %}
+    <h3 class="custom-heading text-capitalize text-center">{{ cat }}</h3>
+{% endfor %}
+<div class="row pr-5 pl-5">
+ <div class="col-6">
+    <p class="custom-heading mt-3 text-md-left">
+        {{ equipment|length }} Item(s)
+    </p>
+</div>
+<div class="col-3 offset-3">
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle custom-heading" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort by</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'equipment' %}?sort=name&direction=asc">Name- A to Z</a>
+                <a class="dropdown-item" href="{% url 'equipment' %}?sort=name&direction=desc">Name- Z to A</a>
+                <a class="dropdown-item" href="{% url 'equipment' %}?sort=price&direction=desc">Price- High to Low</a>
+                <a class="dropdown-item" href="{% url 'equipment' %}?sort=price&direction=asc">Price- Low to High</a>
+                <a class="dropdown-item" href="{% url 'equipment' %}?sort=category&direction=asc">Category</a>
+            </div>
+        </div>
+    </div>
 
+</div>
 
 <div class="container-fluid mt-5">
     <div class="row">
@@ -16,6 +38,7 @@
                         <h4 class="card-title">{{ item.name }}</h4>
                         <p class="card-text">{{ item.description }}</p></div><br>
                         <p class="card-text pl-2">Condition: {{ item.condition }}</p>
+                        <h4 class="card-text pl-2 text-right">£{{ item.price }}</h4>
             </div>
              </a>
         </div>
