@@ -4,9 +4,21 @@ body {
     background-size: cover;
 }
 
+/*------font---------*/
 .custom-heading {
     font-family: 'Kiwi Maru', serif;
     color: rgb(235, 235, 235);
+}
+
+.custom-bag {
+    font-family: 'Kiwi Maru', serif;
+    color: black;
+}
+
+/*----------nav----------*/
+
+.nav-margin {
+    margin-right: 100px;
 }
 
 .custom-jt {
@@ -30,8 +42,14 @@ body {
     transition: all .2s ease-in-out; 
 }
 
+
 .custom-card:hover {
     transform: scale(1.2);
+}
+
+.custom-bag:hover {
+    transform: scale(1.2);
+    color: black;
 }
 
 /*----From w3schools for back to top button----*/

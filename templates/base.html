@@ -36,7 +36,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav nav-margin">
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'home' %}">Home
           {% if request.path == '/' %}  
@@ -76,6 +76,18 @@
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
+   <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link custom-bag" href="{% if grand_total %}{% url 'view_bag' %}{% else %}#{% endif %}">
+        <div class="text-center">
+            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+            <p class="my-0">
+                {% if grand_total %}
+                    £{{ grand_total|floatformat:2 }}
+                {% else %}
+                    £0.00
+                {% endif %}
+            </p>
+        </div>
+    </a>
 </nav>
     </header>
 
