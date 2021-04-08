@@ -7,20 +7,31 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
-
         <div class="col-lg-3 col-md-6 mb-5">
-            
             <div class="card text-white bg-primary mb-3 custom-card" style="max-width: 20rem;">
                 <div class="card-header text-capitalize">{{ item.category }}</div>
-                    <div class="card-body">
-                        <h4 class="card-title">{{ item.name }}</h4>
-                        <p class="card-text">{{ item.description }}</p></div><br>
-                        <p class="card-text pl-2">Condition: {{ item.condition }}</p>
+                <div class="card-body">
+                    <h4 class="card-title">{{ item.name }}</h4>
+                    <p class="card-text">{{ item.description }}</p>
+                </div><br>
+                <p class="card-text pl-2">Condition: {{ item.condition }}</p>
             </div>
-           
         </div>
-        </div>
+    </div>
 </div>
 
+<form action="{% url 'add_to_bag' item.id %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12">
+            <a href="{% url 'equipment' %}" class="btn btn-outline-black rounded-0 mt-5">
+                <button type="button" class="btn btn-primary">Continue Shopping</button>
+            </a>
+            <button type="submit" class="btn btn-primary">Add to Bag</button>
+        </div>
+        <!--get url to redirect back to after adding to bag--> 
+        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+    </div>
+</form>
 
 {% endblock %}
