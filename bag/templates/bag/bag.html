@@ -16,7 +16,10 @@
             <table>
                 <tr>
                     <td>
-                        Items
+                        {{ quantity }}
+                        {% if bag_items %}
+                        {{ bag_items }}
+                        {% endif %}
                     </td>
                 </tr>
             </table>
