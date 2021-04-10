@@ -15,11 +15,52 @@
         <div class="col-6 offset-3">
             <table>
                 <tr>
+                    <th></th>
+                    <th><p><strong>Item</strong></p></th>
+                    <th><p><strong>Description</strong></p></th>
+                    <th><p><strong>Price</strong></p></th>
+                    <th><p><strong>Quantity</strong></p></th>
+                    <th><p><strong>Sub-total</strong></p></th>
+                </tr>
+                {% for x in bag_items %}
+                <tr>
                     <td>
-                        {{ quantity }}
-                        {% if bag_items %}
-                        {{ bag_items }}
-                        {% endif %}
+                    </td>
+                    <td>
+                        <p><strong>{{ x.equip_piece }}</strong></p>
+                    </td>
+                     <td>
+                        <p><strong>{{ x.equip_piece.description }}</strong></p>
+                    </td>
+                    <td>
+                        <p><strong>£{{ x.equip_piece.price }}</strong></p>
+                    </td>
+                    <td>
+                        <p><strong>{{ x.quantity }}</strong></p>
+                    </td>
+                    <td>
+                        <p><strong>£</strong></p>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="5" class="pt-5 text-right">
+                        <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                        <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                        <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                    </td>
+                </tr>
+                 <tr>
+                    <td colspan="5" class="text-right">
+                        <a href="{% url 'equipment' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <button class="text-uppercase">Keep Shopping</button>
+                        </a>
+                        <a href="" class="btn btn-black rounded-0 btn-lg">
+                            <button class="text-uppercase">Secure Checkout</button>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>
                     </td>
                 </tr>
             </table>
