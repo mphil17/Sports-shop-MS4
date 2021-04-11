@@ -4,6 +4,11 @@ body {
     background-size: cover;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 /*------font---------*/
 .custom-heading {
     font-family: 'Kiwi Maru', serif;
