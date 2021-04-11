@@ -78,3 +78,12 @@ body {
 #topBtn:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+
+/*--------------Messages------------------------*/
+
+.message-container {
+    position: fixed;
+    z-index: 10000;
+    right: 30px;
+    top: 100px;
+}
