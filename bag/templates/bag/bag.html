@@ -8,33 +8,32 @@
   crossorigin="anonymous"></script>
 {% block content %}
 
-
-<div class="row">
-    <div class="col-12">
-        <h2 class="custom-heading text-center mt-5">Your Bag</h2>
-    </div>
-</div>
-
-<div class="container-fluid mt-5">
+<div>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-8 col-sm-10 offset-md-2 offset-sm-1">
+            <div class="jumbotron custom-jt">
+               <div class="row">
+                    <div class="col-12">
+                        <h2 class="equip-text text-center mt-5">Your Bag</h2>
+                    </div>
+                </div>
+            <div class="container-fluid mt-5">
     <div class="row">
         <div class="col-6 offset-3">
             <table>
                 <tr>
                     <th></th>
                     <th>
-                        <p><strong>Item</strong></p>
+                        <p class="equip-text"><strong>Item</strong></p>
                     </th>
                     <th>
-                        <p><strong>Description</strong></p>
+                        <p class="equip-text"><strong>Price</strong></p>
                     </th>
                     <th>
-                        <p><strong>Price</strong></p>
+                        <p class="equip-text"><strong>Quantity</strong></p>
                     </th>
                     <th>
-                        <p><strong>Quantity</strong></p>
-                    </th>
-                    <th>
-                        <p><strong>Sub-total</strong></p>
+                        <p class="equip-text"><strong>Sub-total</strong></p>
                     </th>
                 </tr>
                 {% for x in bag_items %}
@@ -42,13 +41,10 @@
                     <td>
                     </td>
                     <td>
-                        <p><strong>{{ x.equip_piece }}</strong></p>
+                        <p class="equip-text"><strong>{{ x.equip_piece }}</strong></p>
                     </td>
                     <td>
-                        <p><strong>{{ x.equip_piece.description }}</strong></p>
-                    </td>
-                    <td>
-                        <p><strong>£{{ x.equip_piece.price }}</strong></p>
+                        <p class="equip-text"><strong>£{{ x.equip_piece.price }}</strong></p>
                     </td>
                     <td>
                         <form class="form update-form" method="POST" action="{% url 'adjust_bag' x.equip_piece.id %}">
@@ -89,9 +85,9 @@
                 {% endfor %}
                 <tr>
                     <td colspan="5" class="pt-5 text-right">
-                        <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                        <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                        <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                        <h6 class="equip-text"><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                        <h6 class="equip-text">Delivery: £{{ delivery|floatformat:2 }}</h6>
+                        <h4 class="mt-4 equip-text"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
                     </td>
                 </tr>
                 <tr>
@@ -108,12 +104,15 @@
                     </td>
                 </tr>
             </table>
-
-
-
         </div>
     </div>
 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 {% endblock %}

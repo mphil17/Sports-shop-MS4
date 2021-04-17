@@ -3,61 +3,57 @@
 
 {% block content %}
 
-
-
-<div class="container-fluid mt-5">
-    <div class="row">
-        <div class="col-lg-3 col-md-6 mb-5">
-            <div class="card text-white bg-primary mb-3 custom-card" style="max-width: 20rem;">
-                <div class="card-header text-capitalize">{{ item.category }}</div>
-                <div class="card-body">
-                    <h4 class="card-title">{{ item.name }}</h4>
-                    <p class="card-text">{{ item.description }}</p>
-                </div><br>
-                <p class="card-text pl-2">Condition: {{ item.condition }}</p>
-            </div>
-        </div>
-    </div>
-</div>
-<form action="{% url 'add_to_bag' item.id %}" method="POST">
-    {% csrf_token %}
-      <div class="form-row">
-        <div class="col-1 offset-1">
-            <p class="mt-3"><strong>Quantity:</strong></p>
-            <div class="form-group w-50">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="decrement-qty btn btn-black rounded-0" 
-                            data-item_id="{{ item.id }}" id="decrement-qty_{{ item.id }}">
-                            <span class="icon">
-                                <i class="fas fa-minus"></i>
-                            </span>
-                        </button>
+<div>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-8 col-sm-10 offset-md-2 offset-sm-1">
+            <div class="jumbotron custom-jt">
+                <div class="row">
+                     <div class="col-md-6 col-sm-12 justify-content-center">
+                        <img src="{{ item.image }}" alt="equipment item selected">
                     </div>
-                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
-                    <div class="input-group-append">
-                        <button class="increment-qty btn btn-black rounded-0"
-                            data-item_id="{{ item.id }}" id="increment-qty_{{ item.id }}">
-                            <span class="icon">
-                                <i class="fas fa-plus"></i>
-                            </span>
-                        </button>
+                    <div class="col-md-6 col-sm-12 justify-content-center">
+                        <h4 class="equip-text">{{ item.name }}</h4>
+                        <p class="equip-text">{{ item.description }}</p>
+                        <p class="equip-text">Condition: {{ item.condition }}</p>
+                        <form action="{% url 'add_to_bag' item.id %}" method="POST">
+                        {% csrf_token %}
+                            <p class="mt-3 offset-3 equip-text"><strong>Quantity:</strong></p>
+                            <div class="form-group w-50 offset-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <button class="decrement-qty btn btn-black rounded-0" 
+                                        data-item_id="{{ item.id }}" id="decrement-qty_{{ item.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-minus"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty btn btn-black rounded-0"
+                                        data-item_id="{{ item.id }}" id="increment-qty_{{ item.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{% url 'equipment' %}" class="btn btn-outline-black rounded-0 mt-5">
+                            <button type="button" class="btn btn-primary custom-heading">Continue Shopping</button>
+                        </a>
+                    <button type="submit" class="btn btn-primary mt-5 custom-heading">Add to Bag</button>
+                    
+                    <!--get url to redirect back to after adding to bag--> 
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <a href="{% url 'equipment' %}" class="btn btn-outline-black rounded-0 mt-5">
-                <button type="button" class="btn btn-primary">Continue Shopping</button>
-            </a>
-        <button type="submit" class="btn btn-primary">Add to Bag</button>
-        </div>
-        <!--get url to redirect back to after adding to bag--> 
-        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-    </div>
-</form>
+</div>
+
 
 {% endblock %}
 

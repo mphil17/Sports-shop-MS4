@@ -32,13 +32,15 @@
 {% for item in equipment %} 
         <div class="col-lg-3 col-md-6 mb-5">
             <a href="{% url 'equipment_item' item.id %}">
-            <div class="card text-white bg-primary mb-3 custom-card" style="max-width: 20rem;">
+            <div class="card text-white bg-primary mb-3 custom-card cust-hov" style="max-width: 20rem;">
                 <div class="card-header text-capitalize">{{ item.category }}</div>
                     <div class="card-body">
                         <h4 class="card-title">{{ item.name }}</h4>
-                        <p class="card-text">{{ item.description }}</p></div><br>
+                        <p class="card-text">{{ item.description }}</p>
+                        <img src="{{ item.image }}" alt="image of the equipment">
                         <p class="card-text pl-2">Condition: {{ item.condition }}</p>
                         <h4 class="card-text pl-2 text-right">£{{ item.price }}</h4>
+                    </div>
             </div>
              </a>
         </div>

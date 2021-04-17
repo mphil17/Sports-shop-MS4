@@ -1,7 +1,8 @@
 
 body {
-    background: url('/media/main-cricket.jpg');
+    background-image: url('/media/main-cricket.jpg');
     background-size: cover;
+    background-color: aliceblue;
 }
 
 .update-link,
@@ -17,10 +18,19 @@ body {
 
 .custom-bag {
     font-family: 'Kiwi Maru', serif;
+    color: rgb(179, 179, 179);
+}
+
+.equip-text {
+    font-family: 'Kiwi Maru', serif;
     color: black;
 }
 
 /*----------nav----------*/
+.bg-custom {
+    background-image: linear-gradient(to bottom right, rgb(68, 68, 68), black);
+}
+
 
 .nav-margin {
     margin-right: 100px;
@@ -31,10 +41,61 @@ body {
     height: 75vh;
 }
 
+/*-------------buttons-----------------------*/
+
 .custom-btn {
     height: 200px;
     width: 300px;
 }
+
+.foot-btn {
+    background-image: url('/media/football2.jpg');
+    background-color: black;
+    background-size: cover;
+}
+
+.hock-btn {
+    background-image: url('/media/hockey.jpg');
+    background-color: black;
+    background-size: cover;
+}
+
+.cric-btn {
+    background-image: url('/media/cricket.jpg');
+    background-color: black;
+    background-size: cover;
+}
+
+.rug-btn {
+    background-image: url('/media/rugby.jpg');
+    background-color: black;
+    background-size: cover;
+}
+
+
+
+/*----From w3schools for back to top button----*/
+
+#topBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: rgb(68, 68, 68); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#topBtn:hover {
+  background-color: rgb(168, 163, 163); /* Add a light-grey background on hover */
+}
+
 
 .img-resize {
     height: 100px;
@@ -54,30 +115,13 @@ body {
 
 .custom-bag:hover {
     transform: scale(1.2);
-    color: black;
+    color: green;
 }
 
-/*----From w3schools for back to top button----*/
-
-#topBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+.qty_input {
+    width: 2rem;
 }
 
-#topBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
 
 /*--------------Messages------------------------*/
 
