@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # Run debug only in development
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['sh-sports-shop', 'localhost']
+ALLOWED_HOSTS = ['sh-sports-shop.herokuapp.com', 'localhost']
 
 
 # Application definition
