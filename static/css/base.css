@@ -131,3 +131,9 @@ body {
     right: 30px;
     top: 100px;
 }
+
+/*--------------checkout------------------------*/
+#card-element {
+    color: #000;
+    border: 1px solid #000;
+}
