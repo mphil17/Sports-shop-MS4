@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </form>
-                            <a class="update-link text-info"><small>Update</small></a>
+                            <a class="update-link text-primary"><small>Update</small></a>
                             <a class="remove-item text-danger float-right" id="remove_{{ x.equip_piece.id }}" data-size="{{ item.size }}"><small>Remove</small></a>
                     </td>
                     <td>
@@ -85,18 +85,18 @@
                 {% endfor %}
                 <tr>
                     <td colspan="5" class="pt-5 text-right">
-                        <h6 class="equip-text"><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                        <h6 class="equip-text"><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
                         <h6 class="equip-text">Delivery: £{{ delivery|floatformat:2 }}</h6>
                         <h4 class="mt-4 equip-text"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="5" class="text-right">
-                        <a href="{% url 'equipment' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                            <button class="text-uppercase">Keep Shopping</button>
+                        <a href="{% url 'equipment' %}" class="btn btn-lg">
+                            <button class="text-uppercase equip-text">Keep Shopping</button>
                         </a>
-                        <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                            <button class="text-uppercase">Secure Checkout</button>
+                        <a href="{% url 'checkout' %}" class="btn btn-lg">
+                            <button class="text-uppercase equip-text">Secure Checkout</button>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>
                             </span>

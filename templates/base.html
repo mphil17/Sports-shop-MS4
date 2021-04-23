@@ -49,25 +49,21 @@
         <a class="nav-link" href="{% url 'equipment' %}">Equipment
         </a>
       </li>
-      
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'account_email' %}">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+      </li>
+      {% else %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
       </li>
-        
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="{% url 'home' %}">Home</a>
-          <a class="dropdown-item" href="{% url 'equipment' %}">Equipment</a>
-          <a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a>
-          <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        </div>
-      </li>
+      {% endif %}
     </ul>
     <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'equipment' %}">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
