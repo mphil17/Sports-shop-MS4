@@ -30,7 +30,7 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
 
-    def _generate_order_number(self):
+    def _generate_order_id(self):
         """
         Generate a random, unique order number using UUID
         """
@@ -53,13 +53,13 @@ class Order(models.Model):
         Override the original save method to set the order number
         if it hasn't been set already.
         """
-        if not self.order_number:
-            self.order_number = self._generate_order_number()
+        if not self.order_id:
+            self.order_id = self._generate_order_id()
         super().save(*args, **kwargs)
 
 
     def __str__(self):
-        return self.order_number
+        return self.order_id
 
 
 class OrderLineItem(models.Model):
@@ -78,4 +78,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.item.sku} on order {self.order.order_number}'
+        return f'SKU {self.item.sku} on order {self.order.order_id}'
