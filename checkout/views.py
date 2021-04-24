@@ -13,9 +13,9 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     bag = request.session.get('bag', {})
-    # if not bag:
-    #     messages.error(request, "Your bag is empty")
-    #     return redirect(reverse('equipment'))
+    if not bag:
+       messages.error(request, "Your bag is empty")
+       return redirect(reverse('equipment'))
 
     current_bag = bag_contents(request)
     total = current_bag['grand_total']
@@ -25,6 +25,8 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
+
+    print(intent)
 
     order_form = OrderForm()
     template = 'checkout/checkout.html'
