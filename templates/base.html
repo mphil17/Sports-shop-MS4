@@ -34,7 +34,7 @@
   <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
-  <a class="navbar-brand" href="#"><img src="/media/shs-logo.png" alt="SHS logo" class="img-resize"></a>
+  <a class="navbar-brand" href="{% url 'home' %}"><img src="/media/shs-logo.jpg" alt="SHS logo" class="img-resize"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -113,8 +113,20 @@
     </script>
     {% endblock %}
 
-        <footer>
-
+        <footer class="bg-light text-lg-start">
+            <!-- Copyright -->
+            <div class="p-3 row" style="background-color: rgba(0, 0, 0, 0.2);">
+                <div class="col-4">
+                © 2021 Copyright: Matt Phillips
+                </div>
+                <div class="col-4 text-center">
+                    Contact Us
+                </div>
+                <div class="col-4">
+                    Social Media
+                </div>
+            </div>
+            <!-- Copyright -->
         </footer>
 
          {% block corejs %}

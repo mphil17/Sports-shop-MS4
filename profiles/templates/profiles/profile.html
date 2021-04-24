@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-8 col-sm-10 offset-md-2 offset-sm-1">
+            <div class="jumbotron custom-jt">
+               <div class="container">
+                   <div class="row">
+                        <div class="col-12 offset-5">
+                            <hr>
+                            <h2 class="equip-text">Profile</h2>
+                            <hr>
+                        </div>
+                    </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
