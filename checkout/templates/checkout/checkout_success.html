@@ -19,7 +19,25 @@
         <div class="row">
             <div class="col text-center">
                 <h2 class="equip-text">Thank You! Your order has been received.</h2><br>
-                <h4 class="equip-text">An email has been sent to {{ order.email }}</h4>
+                <h4 class="equip-text">An email has been sent to {{ order.email }}</h4><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><h4 class="equip-text">Order Number: {{ order.order_id }}</h4></div>
+        </div><br>
+        <div class="row">
+            <div class="col equip-text"><h6>Delivery address:</h6><br>
+            <p>{{ order.full_name }}</p>
+            <p>{{ order.street_address1 }}</p>
+            {% if order.street_address2 %}
+            <p>{{ order.street_address2 }}</p>
+            {% endif %}
+            <p>{{ order.town_or_city }}</p>
+            {% if order.county %}
+            <p>{{ order.county }}</p>
+            {% endif %}
+            <p>{{ order.postcode }}</p>
+            <p class="text-uppercase">{{ order.country }}</p>
             </div>
         </div>
 
