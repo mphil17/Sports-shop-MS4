@@ -1,5 +1,5 @@
 from django import forms
-from .models import Equipment
+from .models import Equipment, Category
 
 
 class SellForm(forms.ModelForm):
@@ -31,3 +31,19 @@ class SellForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+
+
+class EquipmentForm(forms.ModelForm):
+
+    class Meta:
+        model = Equipment
+        fields = ('category', 'name',
+                  'description', 'condition',
+                  'price', 'image',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        categories = Category.objects.all()
+        friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
+
+        self.fields['category'].choices = friendly_names

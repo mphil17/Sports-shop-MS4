@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Equipment, Category
 
+from .forms import SellForm, EquipmentForm
+
 # Create your views here.
 
 
@@ -65,20 +67,22 @@ def equipment_item(request, item_id):
     return render(request, 'equipment/equipment_item.html', context)
 
 
-def sell(request):
-    return render(request, 'equipment/sell.html')
-
-
-def sell_form(request):
-
+def sell_equipment(request):
+    """ Add a product to the store """
     if request.method == 'POST':
-        sell_data = {
-            'category': request.POST['category'],
-            'name': request.POST['name'],
-            'description': request.POST['description'],
-            'condition': request.POST['condition'],
-            'price': request.POST['price'],
-        }
-        sell_form = Equipment(category=category, name=name, description=description, condition=condition, price=price)
-        sell_form.save()
-    return render(request, 'equipment/sell.html')
+        form = EquipmentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('sell_equipment'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = EquipmentForm()
+    template = 'equipment/sell.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
