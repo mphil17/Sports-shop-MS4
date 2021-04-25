@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="row mb-5">
+        <div class="col-md-8 col-sm-10 offset-md-2 offset-sm-1">
+            <div class="jumbotron custom-jt">
+               <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="equip-text">Sell an Item</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="{% url 'sell_form' %}" method="POST" id="sell-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select class="form-control" id="category" name="category">
+                        <option>Hockey</option>
+                        <option>Football</option>
+                        <option>Cricket</option>
+                        <option>Rugby</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="name">Item</label>
+                        <input type="text" class="form-control" id="name" placeholder="Item" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" rows="3" name="description" placeholder="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <select class="form-control" id="condition" name="condition">
+                        <option>Poor</option>
+                        <option>Average</option>
+                        <option>Good</option>
+                        <option>Excellent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price" placeholder="Price" name="price" step="0.01">
+                    </div>
+                    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        
+           
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+     <!-- Stripe -->
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+        {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+        {{ client_secret|json_script:"id_client_secret" }}
+        <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
