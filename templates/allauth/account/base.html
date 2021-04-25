@@ -41,10 +41,13 @@
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'account_email' %}">Account</a>
+        <a class="nav-link" href="{% url 'profile' %}">Account</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sell</a>
       </li>
       {% else %}
       <li class="nav-item">
@@ -98,13 +101,22 @@
 
     <div>
       {% if user.is_authenticated %}
-      <strong>Menu:</strong>
-      <ul>
-        
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <a href="{% url 'account_email' %}"><button class="btn btn-primary">Change E-mail</button></a>
         {% endif %}
-      </ul>
     </div>
+    <footer class="bg-light text-lg-start custom-footer container-fluid">
+            <div class="p-3 row" style="background-color: rgba(0, 0, 0, 0.2);">
+                <div class="col-4">
+                © 2021 Copyright: Matt Phillips
+                </div>
+                <div class="col-4 text-center">
+                    Contact Us
+                </div>
+                <div class="col-4">
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+        </footer>
     {% block content %}
     {% endblock %}
     {% endblock %}

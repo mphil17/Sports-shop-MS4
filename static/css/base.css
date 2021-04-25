@@ -161,3 +161,21 @@ select, select option {
 select:invalid {
     color: #aab7c4;
 }
+
+/*-----------------footer---------------------*/
+.custom-footer {
+    position: fixed;
+    bottom: 0px;
+}
+
+.ig {
+    color: rgb(129, 58, 0);
+}
+
+.yt {
+    color: red;
+}
+
+.li {
+    color: rgb(103, 172, 236);
+}

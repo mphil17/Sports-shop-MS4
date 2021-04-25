@@ -12,7 +12,7 @@
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
+<p class="equip-text">{% blocktrans with site.name as site_name %}Please sign in with one
 of your existing third party accounts. Or, <a href="{{ signup_url }}" class="custome-link">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
@@ -29,7 +29,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p class="text-center mb-5 mt-5">{% blocktrans %}If you have not created an account yet, then please
+<p class="text-center mb-5 mt-5 equip-text"> {% blocktrans %}If you have not created an account yet, then please
 <a href="{{ signup_url }}" class="custom-link">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
