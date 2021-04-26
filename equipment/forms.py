@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Equipment, Category
 
 
@@ -9,6 +10,8 @@ class EquipmentForm(forms.ModelForm):
         fields = ('category', 'name',
                   'description', 'condition',
                   'price', 'image',)
+        
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -23,6 +26,9 @@ class AdminForm(forms.ModelForm):
     class Meta:
         model = Equipment
         fields = '__all__'
+    
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

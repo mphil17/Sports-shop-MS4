@@ -40,7 +40,7 @@ def show_equipment(request):
             query = request.GET['search']
             if not query:
                 messages.error(request, "Please enter a search")
-                return redirect(reverse('products'))
+                return redirect(reverse('equipment'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)| Q(condition__icontains=query)
             equipment = equipment.filter(queries)
@@ -130,10 +130,10 @@ def admin_edit(request, item_id):
         form = AdminForm(request.POST, request.FILES, instance=equipment)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[equipment.id]))
+            messages.success(request, 'Successfully updated item!')
+            return redirect(reverse('equipment_item', args=[equipment.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
     else:
         update_form = AdminForm(instance=equipment)
         messages.info(request, f'You are editing {equipment.name}')
