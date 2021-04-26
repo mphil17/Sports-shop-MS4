@@ -19,15 +19,15 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="equip-text">Add an Item</h2>
+                <h2 class="equip-text">Edit an Item</h2>
                 <hr>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <form action="{% url 'admin' %}" method="POST" id="sell-form" enctype="multipart/form-data">
+                <form action="{% url 'admin_edit', item.id %}" method="POST" id="sell-form" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ admin_form|crispy }}
+                    {{ update_form|crispy }}
                     <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

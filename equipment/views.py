@@ -106,3 +106,26 @@ def admin(request):
 
     return render(request, template, context)
 
+
+def admin_edit(request, item_id):
+    """ Edit a product in the store """
+    equipment = get_object_or_404(Equipment, pk=item_id)
+    if request.method == 'POST':
+        form = AdminForm(request.POST, request.FILES, instance=equipment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product!')
+            return redirect(reverse('product_detail', args=[equipment.id]))
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+    else:
+        update_form = AdminForm(instance=equipment)
+        messages.info(request, f'You are editing {equipment.name}')
+
+    template = 'equipment/admin_edit.html'
+    context = {
+        'update_form': update_form,
+        'equipment': equipment,
+    }
+
+    return render(request, template, context)
