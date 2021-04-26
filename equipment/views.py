@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Equipment, Category
 
-from .forms import SellForm, EquipmentForm
+from .forms import EquipmentForm, AdminForm
 
 # Create your views here.
 
@@ -68,20 +68,40 @@ def equipment_item(request, item_id):
 
 
 def sell_equipment(request):
-    """ Add a product to the store """
+    """ Add a equipment to the store to sell """
     if request.method == 'POST':
         form = EquipmentForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully added product!')
+            messages.success(request, 'Successfully added item!')
             return redirect(reverse('sell_equipment'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add item. Please ensure the form is valid.')
     else:
         form = EquipmentForm()
     template = 'equipment/sell.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def admin(request):
+    """ Admin to control equipment """
+    if request.method == 'POST':
+        form = AdminForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added item!')
+            return redirect(reverse('admin'))
+        else:
+            messages.error(request, 'Failed to add item. Please ensure the form is valid.')
+    else:
+        admin_form = AdminForm()
+    template = 'equipment/admin.html'
+    context = {
+        'admin_form': admin_form,
     }
 
     return render(request, template, context)

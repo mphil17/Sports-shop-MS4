@@ -50,7 +50,10 @@ INSTALLED_APPS = [
     'profiles',
   
     'storages',
+    'crispy_forms',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,6 +66,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sportsShop.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -81,6 +86,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

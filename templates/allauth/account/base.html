@@ -46,9 +46,11 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'sell_equipment' %}">Sell</a>
-      </li>
+        {% if request.user.is_superuser %}
+            <li class="nav-item">
+                <a href="{% url 'admin' %}" class="nav-link">Admin</a>
+            </li>
+        {% endif %}
       {% else %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
@@ -63,6 +65,7 @@
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
+  <a class="nav-link" href="{% url 'sell_equipment' %}"><button class="btn btn-primary">Sell</button></a>
    <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link custom-bag" href="{% if grand_total %}{% url 'view_bag' %}{% else %}#{% endif %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
