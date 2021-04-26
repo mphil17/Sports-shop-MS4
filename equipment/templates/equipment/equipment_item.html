@@ -15,6 +15,12 @@
                         <h4 class="equip-text">{{ item.name }}</h4>
                         <p class="equip-text">{{ item.description }}</p>
                         <p class="equip-text">Condition: {{ item.condition }}</p>
+                        <div class="row">
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'admin_edit' item.id %}"><button class="btn btn-primary">Edit</button></a>
+                            <a href="{% url 'admin_delete' item.id %}"><button class="btn btn-primary">Delete</button></a>
+                            {% endif %}
+                            </div>
                         <form action="{% url 'add_to_bag' item.id %}" method="POST">
                         {% csrf_token %}
                             <p class="mt-3 offset-3 equip-text"><strong>Quantity:</strong></p>

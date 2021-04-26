@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Equipment, Category
 
@@ -67,8 +68,13 @@ def equipment_item(request, item_id):
     return render(request, 'equipment/equipment_item.html', context)
 
 
+@login_required
 def sell_equipment(request):
     """ Add a equipment to the store to sell """
+    if not request.user:
+        messages.error(request, 'Sorry, only sellers can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = EquipmentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -87,8 +93,13 @@ def sell_equipment(request):
     return render(request, template, context)
 
 
+@login_required
 def admin(request):
     """ Admin to control equipment """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = AdminForm(request.POST, request.FILES)
         if form.is_valid():
@@ -107,8 +118,13 @@ def admin(request):
     return render(request, template, context)
 
 
+@login_required
 def admin_edit(request, item_id):
     """ Edit a product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     equipment = get_object_or_404(Equipment, pk=item_id)
     if request.method == 'POST':
         form = AdminForm(request.POST, request.FILES, instance=equipment)
@@ -129,3 +145,16 @@ def admin_edit(request, item_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def admin_delete(request, item_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    """ Delete a product from the store """
+    equipment = get_object_or_404(Equipment, pk=item_id)
+    equipment.delete()
+    messages.success(request, 'Item deleted!')
+    return redirect(reverse('equipment'))

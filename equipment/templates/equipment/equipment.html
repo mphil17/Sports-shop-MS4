@@ -38,13 +38,20 @@
                         <h4 class="card-title">{{ item.name }}</h4>
                        
                         <p class="card-text desc">{{ item.description }}</p>
-                        <img src="{{ equipment.image.url }}" alt="image of the equipment">
+                        <img src="{{ item.image }}" alt="image of the equipment">
                         <p class="card-text pl-2">Condition: {{ item.condition }}</p>
                         <h4 class="card-text pl-2 text-right">£{{ item.price }}</h4>
                     </div>
             </div>
              </a>
+             <div class="row">
+        {% if request.user.is_superuser %}
+        <a href="{% url 'admin_edit' item.id %}">Edit</a>
+        <a href="{% url 'admin_delete' item.id %}">Delete</a>
+        {% endif %}
         </div>
+        </div>
+        
 {% endfor %}
         </div>
 </div>
