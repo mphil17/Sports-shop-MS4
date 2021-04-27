@@ -28,6 +28,7 @@
                 <form action="{% url 'sell_equipment' %}" method="POST" id="sell-form" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}
+                    <input type="hidden" name="user" id="user" value="{{ request.user }}">
                     <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

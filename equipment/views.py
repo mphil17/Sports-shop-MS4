@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -158,3 +159,13 @@ def admin_delete(request, item_id):
     equipment.delete()
     messages.success(request, 'Item deleted!')
     return redirect(reverse('equipment'))
+
+
+def listing(request):
+    """Pagination taken from Django Docs"""
+    equipment = Equipment.objects.all()
+    paginator = Paginator(equipment, 25) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'equipment.html', {'page_obj': page_obj})

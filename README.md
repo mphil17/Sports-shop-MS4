@@ -1,45 +1,82 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome mphil17,
+## Rationale
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+I was required to produce an e-commerce application. This project is an online second hand sports shop. There has been a growth in online sports shops over the last decade and the marketplace has begin to get saturated. There has also been the beginnings of growth in second hand shops, which started was initially dominated by eBay. Facebook Marketplace has taken off along with Depop- a specialist online second hand clothes shop. Putting these ideas together, I have created a second hand sports shop- which as far as I can tell is unique. Many times, I have had people who I play sport with trying to sell their old equipment. It would make their lives easier if there was a website dedicated to that. It would also allow those looking for cheaper alternatives to new sports equipment, a convenient place to find second hand equipment. Maybe they might be trying out a sport or it might be a child who will likely grow out of equipment quickly. I have not put a transaction cost on the sales as the sales are likely to be low anyway. I will make money through advertising on the site.
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Planes
 
-`python3 -m http.server`
+## Strategy
 
-A blue button should appear to click: *Make Public*,
+### Design
 
-Another blue button should appear to click: *Open Browser*.
+I have used Bootswatch design- Litera. This is a sub-library of Bootstrap. This means that the website is responsive using the Bootstrap grid system.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Scope
 
-A blue button should appear to click: *Make Public*,
+I have used only four of the most popular sports to start with. More sports can be added in the future.
 
-Another blue button should appear to click: *Open Browser*.
+## User Stories
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Buyer
+-	To create an account/ login
+-	To have a profile page to track orders and history
+-	To search for equipment
+-	To see details of equipment
+-	To put multiple items into a shopping bag
+-	To edit the shopping bag
+-	To buy equipment securely
+-	To receive confirmation of order
+-	To contact the business with any issues
 
-## Updates Since The Instructional Video
+### Seller
+-	To create an account/ login
+-	To have a profile page to track items they are selling and history
+-	To be able to add items to the site
+-	To receive the money from sales
+-	To contact the business with any issues
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Admin
+-	To be able to access admin account
+-	To be able to control equipment on the site
+-	To be able to control users on the site
+-	To make money through advertising
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Skeleton
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Wireframes
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Features
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+-	Navbar is reduced to hamburger menu on smaller devices
+-	Functioning search bar to search equipment database
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Future Features 
+-	Terms of service on the footer
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Surface
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Colour Scheme
 
---------
+I initially used blue on the navbar as per the wireframes as this matched the logo. However, the blue was slightly different and clashed with the logo and would have drowned out the logo if it was the same colour. I went for a grey to black diagonal gradient colour instead. This I felt added a professional look to the website.
 
-Happy coding!
+### Footer
+The footer is from bootstrap. The default colour of grey worked well as a contrast from the green background image and complements the black navbar. On the footer are social media links (which are not linked currently), a link to a contact page and a copyright sign showing that the page is up to date.
+
+### Buttons
+The buttons are mostly the default Bootswatch Litera buttons with the primary colour. Blue is the colour of the logo so having some blue throughout the app makes sense. It makes them stand out as well. The edges are curved which gives a more friendly feel to them. The secure checkout button is black as it is more important and should be less gimmicky. The sell link is a button even though it is in the navbar as it is not just a link- it is leading to an action as well- similar to the upload button on Youtube.
+
+### Font
+I have used 'Kiwi Maru' throughout the project. The font is a modern style without being too gimmicky. The colour changes in order to make it stand out- generally black or off-white.
+
+### Media
+The main image on the site is a cricket field with a cricket ball resting on it. The picture deliberately has a lot of green in as that is a common colour in the sports that are being used. The picture is quite serene as well which reassures visitors to the website. On the equipment page, I have used a no image jpeg if the equipment doesn't have an image as a placeholder.
+
+
+## Testing
+
+### Issues
+-	App successfully building but showing an error when opening. The Procfile was pointing to the wrong app. Also, settings.py did not have the full Heroku address as the allowed hosts.
+-	After setting up AWS, the development environment was not accessing the static files. Fixed by adding ‘development = true’ in the environment variables. 
+-	Images not showing
+-	‘Stripe’ not being recognised. Reason was the order of the Javascript files.

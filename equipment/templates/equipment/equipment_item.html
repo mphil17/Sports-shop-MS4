@@ -8,9 +8,15 @@
         <div class="col-md-8 col-sm-10 offset-md-2 offset-sm-1">
             <div class="jumbotron custom-jt">
                 <div class="row">
+                    {% if item.image %}
                      <div class="col-md-6 col-sm-12 justify-content-center">
-                        <img src="{{ item.image }}" alt="equipment item selected">
+                        <img src="{{ item.image }}" alt="{{ item.name }}" class="equip-img" style="object-fit: cover;">
                     </div>
+                    {% else %}
+                    <div class="col-md-6 col-sm-12 justify-content-center">
+                     <img src="{{ MEDIA_URL }}no-image.jpg" alt="{{ item.name }}" class="equip-img">
+                    </div>      
+                    {% endif %}
                     <div class="col-md-6 col-sm-12 justify-content-center">
                         <h4 class="equip-text">{{ item.name }}</h4>
                         <p class="equip-text">{{ item.description }}</p>

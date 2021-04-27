@@ -51,7 +51,6 @@ body {
 
 .custom-jt {
     background-color: rgba(235, 235, 235, 0.6)!important; 
-    height: 75vh;
 }
 
 /*-------------buttons-----------------------*/
@@ -111,6 +110,11 @@ body {
 .img-resize {
     height: 100px;
     width: 100px;
+}
+
+.equip-img {
+    height: 100%;
+    width: 100%;
 }
 
 .desc {
