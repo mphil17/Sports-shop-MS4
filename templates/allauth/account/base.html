@@ -107,19 +107,23 @@
         <a href="{% url 'account_email' %}"><button class="btn btn-primary">Change E-mail</button></a>
         {% endif %}
     </div>
-    <footer class="bg-light text-lg-start custom-footer container-fluid">
-            <div class="p-3 row" style="background-color: rgba(0, 0, 0, 0.2);">
+   <footer class="bg-light text-lg-start custom-footer container-fluid">
+            <div class="p-3 row">
                 <div class="col-4">
                 © 2021 Copyright: Matt Phillips
                 </div>
                 <div class="col-4 text-center">
                     Contact Us
                 </div>
-                <div class="col-4">
-                    <i class="fab fa-facebook"></i>
+                <div class="col-3 offset-1">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram-square ig"></i></a>
+                    <a href="#"><i class="fab fa-youtube-square yt"></i></a>
+                    <a href="#"><i class="fab fa-linkedin li"></i></a>
                 </div>
             </div>
         </footer>
+
     {% block content %}
     {% endblock %}
     {% endblock %}
