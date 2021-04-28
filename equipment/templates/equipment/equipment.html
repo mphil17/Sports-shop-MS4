@@ -53,10 +53,10 @@
                     </div>
             </div>
              </a>
-             <div class="row">
+             <div class="row ml-5">
         {% if request.user.is_superuser %}
-        <a href="{% url 'admin_edit' item.id %}">Edit</a>
-        <a href="{% url 'admin_delete' item.id %}">Delete</a>
+        <a href="{% url 'admin_edit' item.id %}" class="text-success mr-5">Edit</a>
+        <a href="{% url 'admin_delete' item.id %}" class="text-danger ml-5">Delete</a>
         {% endif %}
         </div>
         </div>

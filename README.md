@@ -46,6 +46,14 @@ I have used only four of the most popular sports to start with. More sports can 
 
 ### Wireframes
 
+I created the wireframes on [Balsamiq](https://balsamiq.com/). I decided to add a profile page later in the project.
+
+- [Home page](/media/wireframes/home.png)
+- [Equipment page](/media/wireframes/equipment.png)
+- [Individual Equipment View](/media/wireframes/ind-equip-view.png)
+- [Sign-Up Page](/media/wireframes/sign-up.png)
+- [Checkout Page](/media/wireframes/checkout.png)
+
 ### Features
 
 -	Navbar is reduced to hamburger menu on smaller devices
@@ -80,3 +88,8 @@ The main image on the site is a cricket field with a cricket ball resting on it.
 -	After setting up AWS, the development environment was not accessing the static files. Fixed by adding ‘development = true’ in the environment variables. 
 -	Images not showing
 -	‘Stripe’ not being recognised. Reason was the order of the Javascript files.
+
+## Technologies Used
+- This project uses HTML5, CSS3, Javascript and Django Framework.
+- This project uses [Google Fonts](https://fonts.google.com) for more interesting fonts
+- This project uses [Github](https://github.com) 
