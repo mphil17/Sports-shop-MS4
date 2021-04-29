@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -43,7 +42,8 @@ def show_equipment(request):
                 messages.error(request, "Please enter a search")
                 return redirect(reverse('equipment'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)| Q(condition__icontains=query)
+            queries = Q(name__icontains=query) 
+            | Q(description__icontains=query)| Q(condition__icontains=query)
             equipment = equipment.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -108,7 +108,8 @@ def admin(request):
             messages.success(request, 'Successfully added item!')
             return redirect(reverse('admin'))
         else:
-            messages.error(request, 'Failed to add item. Please ensure the form is valid.')
+            messages.error(request, 
+                           'Failed to add item. Please ensure the form is valid.')
     else:
         admin_form = AdminForm()
     template = 'equipment/admin.html'
@@ -134,7 +135,8 @@ def admin_edit(request, item_id):
             messages.success(request, 'Successfully updated item!')
             return redirect(reverse('equipment_item', args=[equipment.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(request, 
+                           'Failed to update item. Please ensure the form is valid.')
     else:
         update_form = AdminForm(instance=equipment)
         messages.info(request, f'You are editing {equipment.name}')

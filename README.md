@@ -180,3 +180,15 @@ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, SECRET_KEY, STRIPE_PUBLI
 
 4. Run the app:
 - Run the app by typing in python3 manage.py runserver in your terminal. This should open up a local host port.
+
+## Credits
+### Help with code
+- Code institute walkthrough
+- Django documentation
+- W3 schools
+- Stripe documentation
+- Many tutors who help me to fix bugs
+
+### General help
+- Felipe Souza Alarcon for keeping me calm despite a tight deadline
+

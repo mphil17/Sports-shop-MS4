@@ -12,8 +12,10 @@ class EquipmentForm(forms.ModelForm):
                   'price', 'image', 'user', )
         widgets = {'user': forms.HiddenInput()}
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    
+    image = forms.ImageField(
+                             label='Image',
+                             required=False,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -28,9 +30,10 @@ class AdminForm(forms.ModelForm):
     class Meta:
         model = Equipment
         fields = '__all__'
-    
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
+    image = forms.ImageField(label='Image',
+                             required=False,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
