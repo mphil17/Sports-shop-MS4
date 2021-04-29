@@ -9,9 +9,11 @@ class EquipmentForm(forms.ModelForm):
         model = Equipment
         fields = ('category', 'name',
                   'description', 'condition',
-                  'price', 'image',)
-        
+                  'price', 'image', 'user', )
+        widgets = {'user': forms.HiddenInput()}
+
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

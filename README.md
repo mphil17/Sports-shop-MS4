@@ -1,3 +1,5 @@
+![SHS Logo](https://sh-sports-shop.s3.eu-west-2.amazonaws.com/media/shs-logo.jpg)
+
 
 ## Strategy
 
@@ -6,12 +8,6 @@
 I was required to produce an e-commerce application. This project is an online second hand sports shop. There has been a growth in online sports shops over the last decade and the marketplace has begin to get saturated. There has also been the beginnings of growth in second hand shops, which started was initially dominated by eBay. Facebook Marketplace has taken off along with Depop- a specialist online second hand clothes shop. Putting these ideas together, I have created a second hand sports shop- which as far as I can tell is unique. Many times, I have had people who I play sport with trying to sell their old equipment. It would make their lives easier if there was a website dedicated to that. It would also allow those looking for cheaper alternatives to new sports equipment, a convenient place to find second hand equipment. Maybe they might be trying out a sport or it might be a child who will likely grow out of equipment quickly. I have not put a transaction cost on the sales as the sales are likely to be low anyway. I will make money through advertising on the site.
 
 ## UX
-
-## Planes
-
-### Design
-
-I have used Bootswatch design- Litera. This is a sub-library of Bootstrap. This means that the website is responsive using the Bootstrap grid system.
 
 ### Scope
 
@@ -56,6 +52,13 @@ I created the wireframes on [Balsamiq](https://balsamiq.com/). I decided to add 
 - [Individual Equipment View](/media/wireframes/ind-equip-view.png)
 - [Sign-Up Page](/media/wireframes/sign-up.png)
 - [Checkout Page](/media/wireframes/checkout.png)
+
+### Data Models
+![Data](/media/wireframes/data-model.png)
+
+
+
+## Structure
 
 ### Features
 
@@ -112,20 +115,9 @@ The main image on the site is a cricket field with a cricket ball resting on it.
 
 ## Testing
 
-#### User Story
-- To navigate the website easily
-
-#### Feature
-- Navbar Links
-
-#### Tests
-- Check each link takes you to where you need to go.
-- Check links change depending upon user logged in/ not/ superuser
+For manuel testing, click on [this link](TESTING.md)
 
 #### Outcome
-- Most links take you where you need to go. Issues with profile.html but now resolved.
-- Links are correctly changed for account holder/ not account holder
-- 
 
 ### Issues
 -	App successfully building but showing an error when opening. The Procfile was pointing to the wrong app. Also, settings.py did not have the full Heroku address as the allowed hosts.
