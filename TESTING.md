@@ -22,7 +22,23 @@
 #### Tests
 - Enter a search term to check it works.
 - Enter nothing.
-- Enter different characters.
+
+#### Outcome
+- Entering nothing turns up all products
+
+
+#### User Story
+- To see details of equipment
+
+#### Feature
+- Equipment
+
+#### Tests
+- Check that equipment list is viewable.
+- Check that equipment can be clicked on to see details.
+
+#### Outcome
+- Equipment list is viewable. No-image url not working on Heroku.
 
 
 #### User Story
@@ -31,12 +47,7 @@
 
 #### Tests
 
-
-#### User Story
-
-#### Feature
-
-#### Tests
+#### Outcome
 
 
 #### User Story
@@ -45,12 +56,7 @@
 
 #### Tests
 
-
-#### User Story
-
-#### Feature
-
-#### Tests
+#### Outcome
 
 
 #### User Story
@@ -58,3 +64,14 @@
 #### Feature
 
 #### Tests
+
+#### Outcome
+
+
+#### User Story
+
+#### Feature
+
+#### Tests
+
+#### Outcome
