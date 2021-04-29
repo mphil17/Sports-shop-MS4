@@ -90,9 +90,10 @@ I created the wireframes on [Balsamiq](https://balsamiq.com/). I decided to add 
 
 ### Future Features 
 -	Terms of service on the footer
--	Real email to users
+-	Real email to users and to the contact page
 -	Real Stripe payments
 -	Address for delivery pre-populated
+-   Seller can see the items they have added and whether they have sold or not (ran out of time for this)
 
 ## Surface
 
@@ -124,8 +125,58 @@ For manuel testing, click on [this link](TESTING.md)
 -	After setting up AWS, the development environment was not accessing the static files. Fixed by adding ‘development = true’ in the environment variables. 
 -	Images not showing
 -	‘Stripe’ not being recognised. Reason was the order of the Javascript files.
+-   Profile page was not showing because it was a user created before the profile app was created.
+
+### Known issues
+- In equipment.html when in admin, edit and delete are hidden below the footer. Need to click on the items first to edit and delete.
+- Footer in accounts pages does not go across the whole page.
 
 ## Technologies Used
 - This project uses HTML5, CSS3, Javascript and Django Framework.
 - This project uses [Google Fonts](https://fonts.google.com) for more interesting fonts
-- This project uses [Github](https://github.com) 
+- This project uses [Github](https://github.com)
+- This project uses [Bootswatch](https://bootswatch.com)
+- This project uses [Amazon Web Services](https://aws.amazon.com/)
+- This project uses [Stripe](https://stripe.com)
+
+## Deployment
+### Deploy on Heroku
+- You will need to use [PIP](https://pypi.org/project/pip/) and ensure it is up to date, Git for version control, Django, Amazon Web Services and Stripe
+with a database set up as described earlier.
+#### Create a requirements.txt
+- You need a requirements.txt so that your app knows what libraries to use. In order to do that, in your terminal type:
+```
+pip3 freeze --local > requirements.txt
+```
+#### Add a Procfile
+- To add a Procfile, type into your teminal:
+```
+echo web: python app.py > Procfile
+```
+Make sure that there is not a blank line added at the bottom
+#### Create a Heroku app
+- Log into Heroku or create an account.
+- Create a new app and give it a unique name
+- Select a region to deploy from
+- Connect your github to Heroku by adding in your github repository name
+- You need to get your own environment variables for:
+AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, SECRET_KEY, STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, STRIPE_WH_SECRET
+- and set USE_AWS to True
+
+#### Run the app
+- Click 'open app'
+
+### Deploy Locally
+1. In your terminal, type:
+```
+git clone https://github.com/mphil17/Sports-shop-MS4.git
+```
+2. Add the requirements for the project:
+```
+pip3 install -r requirements.txt
+```
+3. Create your environment variables for:
+AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, SECRET_KEY, STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, STRIPE_WH_SECRET
+
+4. Run the app:
+- Run the app by typing in python3 manage.py runserver in your terminal. This should open up a local host port.
