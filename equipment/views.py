@@ -42,8 +42,7 @@ def show_equipment(request):
                 messages.error(request, "Please enter a search")
                 return redirect(reverse('equipment'))
 
-            queries = Q(name__icontains=query) 
-            | Q(description__icontains=query)| Q(condition__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query)| Q(condition__icontains=query)
             equipment = equipment.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
