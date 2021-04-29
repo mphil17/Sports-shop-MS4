@@ -41,7 +41,7 @@
                         <p class="card-text desc">{{ item.description }}</p>
                         {% if item.image %}
                         <div>
-                        <img src="{{ item.image }}" alt="{{ item.name }}" class="equip-img">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="equip-img">
                         </div>
                     {% else %}
                     <div>

@@ -10,7 +10,7 @@
                 <div class="row">
                     {% if item.image %}
                      <div class="col-md-6 col-sm-12 justify-content-center">
-                        <img src="{{ item.image }}" alt="{{ item.name }}" class="equip-img" style="object-fit: cover;">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="equip-img" style="object-fit: cover;">
                     </div>
                     {% else %}
                     <div class="col-md-6 col-sm-12 justify-content-center">
