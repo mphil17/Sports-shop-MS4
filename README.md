@@ -118,7 +118,9 @@ The main image on the site is a cricket field with a cricket ball resting on it.
 
 For manuel testing, click on [this link](TESTING.md)
 
-#### Outcome
+### Online testing
+- [CSS Validator](https://jigsaw.w3.org/css-validator/) used. No errors reported.
+- [PEP8 Online Check](http://pep8online.com/) used. Some lines at the end of files and some lines too long. Some lines could not be shortened as it would affect the code. Also null=true is used but PEP does not like it.
 
 ### Issues
 -	App successfully building but showing an error when opening. The Procfile was pointing to the wrong app. Also, settings.py did not have the full Heroku address as the allowed hosts.
@@ -188,6 +190,10 @@ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, DATABASE_URL, SECRET_KEY, STRIPE_PUBLI
 - W3 schools
 - Stripe documentation
 - Many tutors who help me to fix bugs
+- Travis media for the hover transitions
+
+### Media
+- Photo by Alessandro Bogliari on Unsplash
 
 ### General help
 - Felipe Souza Alarcon for keeping me calm despite a tight deadline
