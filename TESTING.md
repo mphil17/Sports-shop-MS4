@@ -162,7 +162,7 @@
 - Check that can add, edit and delete products. 
 
 #### Outcome
-- 
+- Initially could not edit but fixed. Delete and add work.
 
 #### User Story
 - To buy equipment securely
