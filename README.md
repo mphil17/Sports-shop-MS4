@@ -32,7 +32,6 @@ I have used only four of the most popular sports to start with. More sports can 
 -	To have a profile page to track items they are selling and history
 -	To be able to add items to the site
 -	To receive the money from sales
--	To contact the business with any issues
 -   To navigate the website easily
 
 ### Admin
@@ -94,6 +93,7 @@ I created the wireframes on [Balsamiq](https://balsamiq.com/). I decided to add 
 -	Real Stripe payments
 -	Address for delivery pre-populated
 -   Seller can see the items they have added and whether they have sold or not (ran out of time for this)
+-   Seller gets money straight to their account from sales. Currently company would have to pay them. 
 
 ## Surface
 
@@ -121,6 +121,9 @@ For manuel testing, click on [this link](TESTING.md)
 ### Online testing
 - [CSS Validator](https://jigsaw.w3.org/css-validator/) used. No errors reported.
 - [PEP8 Online Check](http://pep8online.com/) used. Some lines at the end of files and some lines too long. Some lines could not be shortened as it would affect the code. Also null=true is used but PEP does not like it.
+- Speed was tested using [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+![Lighthouse read out from site](/media/light-ms4.png)
+
 
 ### Issues
 -	App successfully building but showing an error when opening. The Procfile was pointing to the wrong app. Also, settings.py did not have the full Heroku address as the allowed hosts.
@@ -128,6 +131,7 @@ For manuel testing, click on [this link](TESTING.md)
 -	Images not showing
 -	‘Stripe’ not being recognised. Reason was the order of the Javascript files.
 -   Profile page was not showing because it was a user created before the profile app was created.
+-   admin_edit was not working despite everything appearing fine. It was the form submission had item.id whereas should have been equipment.id for that one.
 
 ### Known issues
 - In equipment.html when in admin, edit and delete are hidden below the footer. Need to click on the items first to edit and delete.
